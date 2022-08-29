@@ -172,14 +172,6 @@ export default {
     }
   }
 };
-/*
-<v-img height="100%"
-       :src="apiImagesUrl+ filmData.backdrop_path"
-       transition="scale-transition"
->
-  </v-img>
-
-*/
 </script>
 
 <style>
