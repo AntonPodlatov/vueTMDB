@@ -50,18 +50,13 @@
             <v-btn target="_blank" text :href="filmData.homepage" color="white" class="pa-0">Homepage</v-btn>
           </v-col>
 
-          <div class="ms-sm-16" v-else>
-            <v-row
-                class="fill-height  ma-0"
-                align="center"
-                justify="center">
+              <v-col cols="12" align-self="center" class="text-center">
               <v-progress-circular
                   class=""
                   indeterminate
                   color="grey lighten-5"
               ></v-progress-circular>
-            </v-row>
-          </div>
+              </v-col>
 
           <v-col class="col-12 mt-12 fill-height">
             <div v-if="!isUndefined(filmData.id)">
@@ -190,6 +185,9 @@ export default {
 <style>
 .v-parallax__image-container {
   filter: brightness(35%);
+}
+.theme--dark.v-expansion-panels .v-expansion-panel {
+  background-color: #0c0c0d;
 }
 </style>
 
