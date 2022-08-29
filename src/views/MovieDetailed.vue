@@ -1,12 +1,6 @@
 <template>
   <div>
-    <v-alert
-        dismissible
-        elevation="2"
-        text
-        type="error"
-        :value="cantLoadData"
-    >
+    <v-alert dismissible elevation="2" text type="error" :value="cantLoadData">
       can't load data
     </v-alert>
     <v-img v-if="!cantLoadData"
@@ -36,21 +30,20 @@
             <p class="white--text">{{ "Release date: " + filmData.release_date }}</p>
             <p class="white--text">
               Production:<br>
-              <span v-for="company in filmData.production_companies"
-                    :key="company.id">
+              <span v-for="company in filmData.production_companies" :key="company.id">
               {{ company.name }}<br>
-            </span>
+              </span>
             </p>
             <p class="white--text">TMDB rating: {{ filmData.vote_average }}</p>
+
             <v-btn target="_blank" text :href="'https://www.imdb.com/title/' + filmData.imdb_id" color="white"
                    class="pa-0">
               IMBD page
-            </v-btn>
-            <br>
+            </v-btn><br>
             <v-btn target="_blank" text :href="filmData.homepage" color="white" class="pa-0">Homepage</v-btn>
           </v-col>
 
-              <v-col cols="12" align-self="center" class="text-center">
+              <v-col v-else cols="12" align-self="center" class="text-center">
               <v-progress-circular
                   class=""
                   indeterminate

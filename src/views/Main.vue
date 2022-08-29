@@ -1,38 +1,26 @@
 <template>
-    <v-container>
-      <v-alert
-          dismissible
-          elevation="2"
-          text
-          type="error"
-          :value="cantLoadData"
-      >can't load data
-      </v-alert>
-      <v-row class="mt-4 main__movies-content justify-center">
-        <v-col v-for="movie in movies"
-               cols="6"
-               md="3"
-               :key="movie.id">
-          <movie-card :movie-url="'movie/'"
-                      :movie="movie"
-                      :api-images-url="$store.state.service.smallImagesUrl"
-          ></movie-card>
-        </v-col>
-      </v-row>
+  <v-container>
 
-      <div class="text-center mt-12">
-        <v-pagination
-            v-if="!cantLoadData"
-            dark
-            color="black"
-            :length="pagesCount"
-            total-visible="7"
-            v-model="currentPageNumber"
-            @input="goToPage()"
-        >
-        </v-pagination>
-      </div>
-    </v-container>
+    <v-alert dismissible elevation="2" text type="error" :value="cantLoadData">
+      can't load data
+    </v-alert>
+
+    <v-row class="mt-4 main__movies-content justify-center">
+      <v-col v-for="movie in movies" cols="6" md="3" :key="movie.id">
+        <movie-card :movie-url="'movie/'" :movie="movie"
+                    :api-images-url="$store.state.service.smallImagesUrl"
+        ></movie-card>
+      </v-col>
+    </v-row>
+
+    <div class="text-center mt-12">
+      <v-pagination v-if="!cantLoadData"
+                    dark color="black" :length="pagesCount"
+                    total-visible="7" v-model="currentPageNumber"
+                    @input="goToPage()">
+      </v-pagination>
+    </div>
+  </v-container>
 </template>
 
 <script>
